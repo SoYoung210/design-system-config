@@ -4,7 +4,7 @@ module.exports = () => {
   const config = {
     entry: './src/index.ts',
     output: {
-      path: pathResolve(__dirname, 'dist3'),
+      path: pathResolve(__dirname, '../../dist3'),
       library: 'design_system_config',
       filename: 'design_system_config.esm.js',
     },
