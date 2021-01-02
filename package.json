@@ -15,6 +15,7 @@
     "test": "test",
     "check-types": "tsc --noEmit",
     "semantic-release": "semantic-release",
+    "build:webpack": "rimraf ./dist3 && webpack -c ./scripts/webpack/webpack.config.js --mode=production",
     "build:rollup": "rimraf ./dist2 && rollup -c ./scripts/rollup/rollup.config.js && npm run build:types2",
     "build": "rimraf ./dist && npm run build:esm && npm run build:cjs && npm run build:types",
     "build:esm": "BABEL_ENV=esm babel src --extensions .ts,.tsx -d dist/esm --source-maps",
@@ -66,7 +67,9 @@
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
     "autoprefixer": "^10.1.0",
+    "babel-loader": "^8.2.2",
     "babel-plugin-lodash": "^3.3.4",
+    "css-loader": "^5.0.1",
     "cssnano": "^4.1.10",
     "eslint": "^7.16.0",
     "eslint-plugin-import": "^2.22.1",
@@ -80,9 +83,12 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-terser": "^7.0.2",
     "semantic-release": "^17.3.1",
     "tailwindcss": "^2.0.2",
-    "typescript": "^4.1.3"
+    "typescript": "^4.1.3",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
