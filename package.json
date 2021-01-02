@@ -5,23 +5,25 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@soyoung210"
   },
-  "main": "dist2/cjs/index.js",
-  "module": "dist2/esm/index.js",
-  "types": "dist2/types/index.d.ts",
+  "main": "dist3/cjs/index.js",
+  "module": "dist3/design_system_config.esm.js",
+  "types": "dist3/types/index.d.ts",
   "files": [
-    "dist2"
+    "dist3"
   ],
   "scripts": {
     "test": "test",
     "check-types": "tsc --noEmit",
     "semantic-release": "semantic-release",
-    "build:webpack": "rimraf ./dist3 && webpack -c ./scripts/webpack/webpack.config.js --mode=production",
+    "prebuild:webpack": "rimraf ./dist3",
+    "build:webpack": "webpack -c ./scripts/webpack/webpack.config.js --mode=production && npm run build:types3",
     "build:rollup": "rimraf ./dist2 && rollup -c ./scripts/rollup/rollup.config.js && npm run build:types2",
     "build": "rimraf ./dist && npm run build:esm && npm run build:cjs && npm run build:types",
     "build:esm": "BABEL_ENV=esm babel src --extensions .ts,.tsx -d dist/esm --source-maps",
     "build:cjs": "BABEL_ENV=cjs babel src --extensions .ts,.tsx -d dist/cjs --source-maps",
     "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
-    "build:types2": "tsc --emitDeclarationOnly --declaration --declarationDir dist2/types"
+    "build:types2": "tsc --emitDeclarationOnly --declaration --declarationDir dist2/types",
+    "build:types3": "tsc --emitDeclarationOnly --declaration --declarationDir dist3/types"
   },
   "repository": {
     "type": "git",

@@ -13,7 +13,7 @@
     "@semantic-release/npm",
     [
       "@semantic-release/github", {
-        "assets": ["dist2/*", "CHANGELOG.md" , "package.json"],
+        "assets": ["dist3/*", "CHANGELOG.md" , "package.json"],
         "successComment": "🎉 이 PR은 ${nextRelease.version}버전에 배포되었습니다."
       }
     ],
