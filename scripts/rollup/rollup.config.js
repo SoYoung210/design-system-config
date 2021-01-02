@@ -3,6 +3,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
+import { terser } from 'rollup-plugin-terser';
 
 const extensions = ['.ts', '.tsx'];
 const inputSrc = [
@@ -36,6 +37,7 @@ export default inputSrc
         postcss({
           plugins: [],
         }),
+        terser(),
       ],
     };
   });
